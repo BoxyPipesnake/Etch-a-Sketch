@@ -9,11 +9,17 @@
 
 // https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
 
-const container = document.getElementById("container");
+const clearCell = document.querySelector('#clearBtn');
+const paintAgain = document.querySelector('#color');
+const clearAll = document.querySelector('#clearAll');
+
+const container = document.querySelector("#container");
 
 container.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor = "orange";
+    //e.target.style.backgroundColor = "orange";
+    e.target.classList.add("active");
 });
+
 
 
 function makeRows(rows, cols) {
@@ -27,3 +33,18 @@ function makeRows(rows, cols) {
 };
 
 makeRows(16, 16);
+
+
+paintAgain.addEventListener('click', (e)=>{
+    container.addEventListener('mouseover', (e) => {
+        //e.target.style.backgroundColor = "orange";
+        e.target.classList.add("active");
+    });
+})
+
+clearCell.addEventListener('click', (e) => {
+    container.addEventListener('mouseover', (e) => {
+        e.target.classList.remove("active");
+    });
+} )
+
