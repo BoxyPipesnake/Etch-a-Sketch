@@ -15,8 +15,9 @@ const clearAll = document.querySelector('#clearAll');
 
 const container = document.querySelector("#container");
 
+
+
 container.addEventListener('mouseover', (e) => {
-    //e.target.style.backgroundColor = "orange";
     e.target.classList.add("active");
 });
 
@@ -34,10 +35,11 @@ function makeRows(rows, cols) {
 
 makeRows(16, 16);
 
+const containerElements = document.querySelectorAll('.grid-container *');
+
 
 paintAgain.addEventListener('click', (e)=>{
     container.addEventListener('mouseover', (e) => {
-        //e.target.style.backgroundColor = "orange";
         e.target.classList.add("active");
     });
 })
@@ -48,3 +50,8 @@ clearCell.addEventListener('click', (e) => {
     });
 } )
 
+clearAll.addEventListener('click', ()=>{
+    containerElements.forEach((element) => {
+        element.classList.remove('active');
+    });
+})

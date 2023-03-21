@@ -23,16 +23,17 @@ body {
     text-align: center;
 }
 
-/* .grid-item:hover {
-    background-color: yellow;
-} */
 
-.active {
-    background-color: yellow;
-}
 
 .white {
     background-color: white;
 }
 
 
+.active {
+    background-color: yellow;
+}
+
+.new {
+    background-color: white;
+}
