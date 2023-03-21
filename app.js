@@ -1,11 +1,10 @@
-// function randomColor() {
-//     return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
-// }
+function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    return "rgb(" + x + "," + y + "," + z + ")";
+}
 
-// function setRandomBgColor() {
-//     const newBgColor = randomColor();
-//     boxParaRule.style.setProperty("background-color", newBgColor);
-// }
 
 // https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
 
@@ -13,12 +12,13 @@ const clearCell = document.querySelector('#clearBtn');
 const paintAgain = document.querySelector('#color');
 const clearAll = document.querySelector('#clearAll');
 
+const multiColor = document.querySelector('#multiColor');
+
 const container = document.querySelector("#container");
 
 
-
 container.addEventListener('mouseover', (e) => {
-    e.target.classList.add("active");
+    e.target.style.backgroundColor = "black";
 });
 
 
@@ -35,23 +35,38 @@ function makeRows(rows, cols) {
 
 makeRows(16, 16);
 
+
+
+
+
+
+
+
+
+
 const containerElements = document.querySelectorAll('.grid-container *');
 
 
-paintAgain.addEventListener('click', (e)=>{
+paintAgain.addEventListener('click', ()=>{
     container.addEventListener('mouseover', (e) => {
-        e.target.classList.add("active");
+        e.target.style.backgroundColor = "black";
     });
 })
 
-clearCell.addEventListener('click', (e) => {
+clearCell.addEventListener('click', () => {
     container.addEventListener('mouseover', (e) => {
-        e.target.classList.remove("active");
+        e.target.style.backgroundColor = "white";
     });
 } )
 
 clearAll.addEventListener('click', ()=>{
     containerElements.forEach((element) => {
-        element.classList.remove('active');
+        element.style.backgroundColor = "white";
+    });
+})
+
+multiColor.addEventListener('click', ()=>{
+    container.addEventListener('mouseover', (e) => {
+        e.target.style.backgroundColor = random_bg_color();
     });
 })
