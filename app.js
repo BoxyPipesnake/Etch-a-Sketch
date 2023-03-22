@@ -18,12 +18,16 @@ const paintAgain = document.querySelector('#color');
 const clearAll = document.querySelector('#clearAll');
 const multiColor = document.querySelector('#multiColor');
 
+
+container.addEventListener('mouseover', (e) => {
+    e.target.style.backgroundColor = "black";
+});
+
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
-    cell.innerText = (c + 1);
     container.appendChild(cell).className = "grid-item";
   };
 };
@@ -44,11 +48,6 @@ grid2.addEventListener('click', ()=>{
     containerElements = document.querySelectorAll('.grid-container *');
 });
 
-grid3.addEventListener('click', ()=>{
-    removeChild()
-    makeRows(30, 30);
-    containerElements = document.querySelectorAll('.grid-container *');
-});
 
 grid1.addEventListener('click', ()=>{
     removeChild()
